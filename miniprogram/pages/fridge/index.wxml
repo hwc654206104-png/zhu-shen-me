@@ -1,0 +1,13 @@
+<view class="main"><text class="eyebrow">管理家里的食材</text><text class="h">我的冰箱</text><view class="card"><view wx:for="{{owned}}" wx:key="id" class="row divider owned-row"><text class="b">{{item.name}}</text><button class="link delete-action" data-id="{{item.id}}" bindtap="remove">删除</button></view><text wx:if="{{!owned.length}}" class="small">冰箱里还没有食材</text></view><button class="btn" bindtap="openSheet">添加食材 ＋</button><view wx:if="{{sheet}}" class="sheet-cover" bindtap="closeSheet"><view class="sheet" style="height:{{height}}vh" catchtap="noop"><view class="handle" bindtouchstart="dragStart" catchtouchmove="dragMove" bindtouchend="dragEnd"></view><text class="b">从食材库选择</text><input class="input" placeholder="搜索食材或别称" bindinput="searchCatalog"/><scroll-view scroll-y class="results"><view wx:for="{{results}}" wx:key="id" class="row divider catalog-row"><view class="catalog-info"><text class="b">{{item.name}}</text><text class="small">{{item.aliasText}}</text></view><button class="link catalog-action" data-id="{{item.id}}" bindtap="toggle">{{item.owned?'删除':'添加'}}</button></view><text wx:if="{{!results.length}}" class="small">暂未收录该食材</text></scroll-view></view></view></view>
+
+
+
+
+
+
+
+
+
+
+
+

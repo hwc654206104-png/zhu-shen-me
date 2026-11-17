@@ -1,0 +1,11 @@
+// Append-only version synchronization, followed by complete content readback.
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const version=require('../miniprogram/data/recipe-index').metadata.recipeVersion;
+const prefix='build/recipe-import/'+version,expected=JSON.parse(fs.readFileSync(prefix+'-documents.json'));
+function call(action,file){const r=cp.spawnSync(process.execPath,['scripts/recipe-cloud-cli.cjs',action,file],{encoding:'utf8',maxBuffer:30*1024*1024});if(r.status!==0)throw Error(r.stderr||r.stdout);const result=JSON.parse(r.stdout);if(result.error)throw Error(JSON.stringify(result.error));return result;}
+function normalize(x){if(Array.isArray(x))return x.map(normalize);if(x&&typeof x==='object'){for(const key of ['$numberInt','$numberLong','$numberDouble'])if(Object.keys(x).length===1&&key in x)return Number(x[key]);return Object.fromEntries(Object.entries(x).map(([k,v])=>[k,normalize(v)]));}return x;}
+const query=prefix+'-query.json';fs.writeFileSync(query,JSON.stringify({recipeVersion:version}));
+function readback(){const response=call('query',query);fs.writeFileSync(prefix+'-readback.json',JSON.stringify(response));const rows=normalize(response.data.results).flat();assert(rows.every(r=>r.recipeVersion===version));return rows;}
+let existing=readback();for(const d of expected){const old=existing.find(r=>r._id===d._id);if(old){assert.deepEqual(old,d);continue;}const file=prefix+'-sync-document.json';fs.writeFileSync(file,JSON.stringify(d));fs.writeFileSync(prefix+'-'+d._id.replace(version,'version')+'-receipt.json',JSON.stringify(call('insert',file)));console.log('Inserted '+d._id);}
+existing=readback();assert.equal(existing.length,expected.length);for(const d of expected)assert.deepEqual(existing.find(r=>r._id===d._id),d);
+const proof={environment:'cloud1-d0g0ntbbyaddfb364',recipeVersion:version,documents:expected.length,recipes:require('../docs/miniapp/recipes/recipes.json').length,foods:require('../docs/miniapp/recipes/ingredient-catalog.json').length,allContentMatches:true,method:'Official CLI full readback and deep equality',checkedAt:new Date().toISOString()};fs.writeFileSync('docs/miniapp/ingredient-cloud-verification.json',JSON.stringify(proof,null,2)+'\n');console.log(JSON.stringify(proof));

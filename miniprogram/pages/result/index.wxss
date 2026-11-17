@@ -1,0 +1,8 @@
+
+
+.recipe-favorite{margin-top:12rpx;background:#eff3e8;border-radius:14rpx}.recipe-favorite.cancel-link{color:#b34f43}
+
+/* Override the generic 112rpx row action for the full favorite label. */
+.main .card .divider>.link.recipe-favorite{display:flex;align-items:center;justify-content:center;width:224rpx;max-width:100%;min-height:80rpx;height:auto;flex:0 0 auto;margin:16rpx 0 0 auto;padding:16rpx 24rpx;font-size:26rpx;line-height:1.5;text-align:center;white-space:normal;word-break:break-all;box-sizing:border-box}
+
+.recipe-actions{display:flex;flex-wrap:wrap;gap:12rpx;justify-content:flex-end;margin-top:16rpx}.recipe-actions .link{width:auto;min-height:76rpx;margin:0;padding:12rpx 20rpx;border-radius:14rpx;font-size:26rpx;line-height:1.5}.recipe-lock{background:#f1f4ea;color:#537348}.recipe-lock.locked{background:#537348;color:#fff}.recipe-actions .recipe-favorite{background:#eff3e8}.lock-hint{text-align:center;margin-top:12rpx}

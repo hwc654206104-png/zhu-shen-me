@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/blind/index",
+    "pages/menu/index",
+    "pages/profile/index",
+    "pages/wizard/index",
+    "pages/result/index",
+    "pages/fridge/index",
+    "pages/friends/index",
+    "pages/agreement/index",
+    "pages/friend/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "猪什么",
+    "navigationBarBackgroundColor": "#FAF8F2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAF8F2"
+  },
+  "tabBar": {
+    "color": "#65725e",
+    "selectedColor": "#537348",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "今天煮什么",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/blind/index",
+        "text": "盲盒",
+        "iconPath": "images/tab-box.png",
+        "selectedIconPath": "images/tab-box-active.png"
+      },
+      {
+        "pagePath": "pages/menu/index",
+        "text": "我的菜单",
+        "iconPath": "images/tab-menu.png",
+        "selectedIconPath": "images/tab-menu-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "subPackages": [
+    {
+      "root": "recipe-book",
+      "pages": [
+        "pages/detail/index",
+        "pages/library/index"
+      ]
+    }
+  ]
+}

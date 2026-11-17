@@ -1,0 +1,1 @@
+.blind-stage{height:400rpx;text-align:center;padding:60rpx}.box{margin:auto auto 30rpx;width:180rpx;height:180rpx;line-height:180rpx;background:#dbe5c4;border-radius:26rpx;box-shadow:0 20rpx 0 #c5d7b0;color:#537348;font-size:110rpx;font-weight:700;transform:rotate(-6deg)}

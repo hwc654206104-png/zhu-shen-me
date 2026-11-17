@@ -1,0 +1,12 @@
+
+
+.source-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8}
+.source-toggle{display:flex;align-items:center;justify-content:space-between;gap:24rpx;min-height:88rpx;border-top:1rpx solid #e7ebdf;margin-top:20rpx}
+.source-toggle .b{margin:0;flex:1}
+.source-toggle .small{flex-shrink:0}
+.section-label{margin-top:24rpx;margin-bottom:12rpx}
+.recipe-step{align-items:flex-start;gap:18rpx}
+.recipe-step .tag{flex-shrink:0;margin-top:4rpx}
+.recipe-step .small{flex:1;min-width:0;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere}
+.amount-line{display:block;margin-top:14rpx;line-height:1.8;overflow-wrap:anywhere}
+.source-credit{margin-top:16rpx}

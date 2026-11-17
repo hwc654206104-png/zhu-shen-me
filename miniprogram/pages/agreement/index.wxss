@@ -1,0 +1,1 @@
+.agreement-main{padding-bottom:100rpx}.agreement-card{margin-top:26rpx;background:#fff;border:2rpx solid #e1e6d9;border-radius:26rpx;padding:30rpx}.section-title{display:block;font-size:30rpx;font-weight:700;color:#2e4033;margin:24rpx 0 10rpx}.section-title:first-child{margin-top:0}.body{display:block;font-size:27rpx;line-height:1.8;color:#606d59}

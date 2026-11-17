@@ -1,0 +1,71 @@
+{
+  "appid": "wx0cb3da57b3344189",
+  "envId": "cloud1-d0g0ntbbyaddfb364",
+  "status": "collections_and_rules_verified",
+  "collections": [
+    {
+      "name": "recipe_versions",
+      "rules": {
+        "read": true,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINWRITE"
+    },
+    {
+      "name": "user_profiles",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINONLY"
+    },
+    {
+      "name": "fridges",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINONLY"
+    },
+    {
+      "name": "meals",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINONLY"
+    },
+    {
+      "name": "shares",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINONLY"
+    },
+    {
+      "name": "viewed_shares",
+      "rules": {
+        "read": false,
+        "write": false
+      },
+      "existsVerified": true,
+      "rulesVerified": true,
+      "aclTag": "ADMINONLY"
+    }
+  ],
+  "privateAccess": "pigApi server SDK only; getWXContext identity plus ownership and schema validation required",
+  "note": "This file declares intended document database rules. It does not apply them or replace live permission and cross-user verification. Do not switch gateway policy engines to implement these rules.",
+  "runtimeCrossUserVerified": false,
+  "permissionEvidence": "docs/miniapp/cloud-private-permissions.jpg"
+}

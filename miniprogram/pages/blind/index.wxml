@@ -1,0 +1,7 @@
+<view class="main blind-main"><view class="brand-lockup"><image class="brand-mark" mode="aspectFit" src="/assets/pig-chef-avatar.png"/><text class="brand-name">猪什么</text></view><text class="eyebrow">给今天一点惊喜</text><text class="h">不知道吃什么？
+打开一个盲盒。</text><text class="p">把纠结放下，让下一道美味来找你。</text><view class="blind-stage"><view class="box {{opening ? 'box-opening' : ''}}" bindtap="draw" hover-class="box-pressed"><text class="box-mark">?</text><text class="box-label">盲盒</text></view><text class="small">一盒未知 · 一餐期待</text></view><view class="card"><text class="small">你的今日美味</text><text class="h">{{recipe.name || '下一道，会是什么？'}}</text><text class="small">{{recipe.cuisine}}</text></view><button wx:if="{{recipe}}" class="btn" bindtap="open">就吃这道 · 查看做法 →</button><button class="btn secondary" bindtap="draw">{{recipe?'再开一盒':'打开盲盒'}} ↗</button><button wx:if="{{recipe}}" class="btn secondary" bindtap="favorite">{{favorited?'取消收藏':'收藏这道菜'}}</button><view class="blind-note"><text class="small">不看冰箱 · 从菜谱库随机抽取</text></view></view>
+
+
+
+
+

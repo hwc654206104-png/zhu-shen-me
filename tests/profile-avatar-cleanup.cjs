@@ -1,0 +1,10 @@
+const assert=require('assert'),vm=require('vm'),fs=require('fs');
+let page;const pending=[],removed=[];const state={profile:{name:'User',avatar:'old'},meals:[]};
+vm.runInNewContext(fs.readFileSync('miniprogram/pages/profile/index.js','utf8'),{require:()=>({load:()=>state,change:fn=>fn(state)}),Page:p=>page=p,wx:{saveFile:o=>pending.push(o),removeSavedFile:o=>removed.push(o.filePath),showToast:()=>{}}});
+page.setData=function(d){Object.assign(this.data,d);};page.onShow();page.edit();
+page.avatar({detail:{avatarUrl:'temp'}});pending.shift().success({savedFilePath:'draft1'});
+assert.equal(page.data.draftAvatar,'draft1');page.cancel();assert(removed.includes('draft1'));assert.equal(state.profile.avatar,'old');
+page.edit();assert.equal(page.data.draftAvatar,'old');page.cancel();
+page.edit();page.avatar({detail:{avatarUrl:'temp'}});page.cancel();pending.shift().success({savedFilePath:'late'});assert(removed.includes('late'));assert.equal(state.profile.avatar,'old');
+page.edit();page.avatar({detail:{avatarUrl:'temp'}});pending.shift().success({savedFilePath:'new'});page.save();assert.equal(state.profile.avatar,'new');assert(removed.includes('old'));page.onUnload();assert(!removed.includes('new'));
+console.log('PASS: avatar preview, cancellation, late callback and replacement cleanup');

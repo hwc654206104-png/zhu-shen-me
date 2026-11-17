@@ -1,0 +1,7 @@
+<view class="main home-main"><view class="brand-lockup"><image class="brand-mark" mode="aspectFit" src="/assets/pig-chef-avatar.png"/><text class="brand-name">猪什么</text></view><text class="eyebrow">你的日常厨房小帮手</text><text class="h">今天煮什么？</text><text class="p">从手头的食材，搭配适合你的一餐。</text><view class="card"><view class="row"><view><text class="b">我的冰箱</text><text class="small">{{foods.length}}种食材</text></view><view class="link edit-food-entry" bindtap="fridge">编辑食材 ›</view></view><scroll-view scroll-y enhanced show-scrollbar="true" class="food-tags"><view class="tags"><text wx:for="{{foods}}" wx:key="id" class="tag">{{item.name}}</text></view></scroll-view><text wx:if="{{!foods.length}}" class="small">先添加家里现有的食材</text></view><button class="btn home-cta" bindtap="wizard">帮我搭配一餐 →</button><view class="row small home-steps"><text>① 人数 / 菜数</text><text>② 口味偏好</text><text>③ 生成菜单</text></view><view class="tip-card"><view class="tip-heading"><text class="b">今日厨房小贴士</text><text class="tip-mark">✦</text></view><view class="tip-list"><text wx:for="{{dailyTips}}" wx:key="*this">{{item}}</text></view></view></view>
+
+
+
+
+
+
